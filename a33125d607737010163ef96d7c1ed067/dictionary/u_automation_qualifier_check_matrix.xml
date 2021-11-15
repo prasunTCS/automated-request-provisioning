@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Automation Qualifier Check Matrix" max_length="40" name="u_automation_qualifier_check_matrix" type="collection">
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Action Name" max_length="40" name="u_action_name" type="string">
+            <choice/>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Action Parameter Value" max_length="160" name="u_action_parameter_value" type="string"/>
+        <element attributes="encode_utf8=false" label="Catalog Item" max_length="32" name="u_catalog_item" reference="sc_cat_item" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Catalog Item Variable 1" max_length="140" name="u_catalog_item_variable_1" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Catalog Item Variable 2" max_length="140" name="u_catalog_item_variable_2" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Catalog Item Variable 3" max_length="140" name="u_catalog_item_variable_3" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Catalog Item Variable 4" max_length="140" name="u_catalog_item_variable_4" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="u_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="REST API" max_length="40" name="u_rest_api" type="string"/>
+        <index name="index">
+            <element name="u_catalog_item"/>
+        </index>
+    </element>
+</database>
