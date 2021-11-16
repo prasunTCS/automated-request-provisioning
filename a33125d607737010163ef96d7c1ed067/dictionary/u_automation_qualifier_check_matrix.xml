@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Automation Qualifier Check Matrix" max_length="40" name="u_automation_qualifier_check_matrix" type="collection">
-        <element attributes="edge_encryption_enabled=true" choice="1" label="Action Name" max_length="40" name="u_action_name" type="string">
-            <choice/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Action Name" mandatory="true" max_length="40" name="u_action_name" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Add User to AD Group" sequence="100" value="add_user_to_ad_group"/>
+                <element inactive_on_update="false" label="Create A New AD Group" sequence="200" value="create_a_new_ad_group"/>
+            </choice>
         </element>
-        <element attributes="edge_encryption_enabled=true" label="Action Parameter Value" max_length="160" name="u_action_parameter_value" type="string"/>
-        <element attributes="encode_utf8=false" label="Catalog Item" max_length="32" name="u_catalog_item" reference="sc_cat_item" type="reference"/>
-        <element attributes="edge_encryption_enabled=true" label="Catalog Item Variable 1" max_length="140" name="u_catalog_item_variable_1" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="Catalog Item Variable 2" max_length="140" name="u_catalog_item_variable_2" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="Catalog Item Variable 3" max_length="140" name="u_catalog_item_variable_3" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="Catalog Item Variable 4" max_length="140" name="u_catalog_item_variable_4" type="string"/>
-        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="u_number" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="REST API" max_length="40" name="u_rest_api" type="string"/>
+        <element label="Action Variable Name" mandatory="true" max_length="160" name="u_action_variable_name" type="string"/>
+        <element hint="This will be the value that required to be set in the target system" label="Action Variable Value" mandatory="true" max_length="160" name="u_action_variable_value" type="string"/>
+        <element attributes="encode_utf8=false" label="Catalog Item" mandatory="true" max_length="32" name="u_catalog_item" reference="sc_cat_item" type="reference"/>
+        <element label="Catalog Qualifier Encoded Query" mandatory="true" max_length="300" name="u_catalog_qualifier_encoded_query" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="u_number" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="REST API" max_length="40" name="u_rest_api" reference="sys_rest_message" type="reference"/>
         <index name="index">
             <element name="u_catalog_item"/>
         </index>
