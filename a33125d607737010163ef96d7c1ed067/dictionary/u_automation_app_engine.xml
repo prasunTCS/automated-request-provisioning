@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Automation App Engine" max_length="40" name="u_automation_app_engine" type="collection">
+        <element label="Created From Flow" max_length="32" name="u_created_from_flow" read_only="true" reference="sys_flow_context" type="reference"/>
+        <element label="Executed Flow" max_length="32" name="u_executed_flow" read_only="true" reference="sys_flow_context" type="reference"/>
+        <element label="JSON Output" max_length="32768" name="u_json_output" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="u_number" read_only="true" type="string"/>
+        <element label="Qualifier Matrix" max_length="32" name="u_qualifier_matrix" read_only="true" reference="u_automation_qualifier_check_matrix" type="reference"/>
+        <element label="SCTask Reference" max_length="32" name="u_sctask_reference" read_only="true" reference="sc_task" type="reference"/>
+        <element choice="3" default="Ready" label="Status" max_length="40" name="u_status" read_only="true" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Ready" sequence="10" value="Ready"/>
+                <element inactive_on_update="false" label="Executing" sequence="20" value="Executing"/>
+                <element inactive_on_update="false" label="Waiting for Callback" sequence="30" value="Waiting for Callback"/>
+                <element inactive_on_update="false" label="Retrying" sequence="40" value="Retrying"/>
+                <element inactive_on_update="false" label="Completed" sequence="50" value="Completed"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="u_sctask_reference"/>
+        </index>
+        <index name="index2">
+            <element name="u_created_from_flow"/>
+        </index>
+        <index name="index3">
+            <element name="u_executed_flow"/>
+        </index>
+        <index name="index4">
+            <element name="u_qualifier_matrix"/>
+        </index>
+    </element>
+</database>
